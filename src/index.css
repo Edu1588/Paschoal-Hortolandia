@@ -104,18 +104,17 @@
     justify-content: center;
     gap: 4px;
     padding: 16px 40px;
-    border: 4px solid transparent;
+    border: none;
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    background-color: transparent;
+    background-color: var(--btn-color, var(--color-horto-orange));
     border-radius: 100px;
     font-weight: 700;
-    color: var(--btn-color, var(--color-horto-orange));
-    box-shadow: 0 0 0 2px var(--btn-color, var(--color-horto-orange));
+    color: var(--btn-text, var(--color-warm-cream));
     cursor: pointer;
     overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     flex-shrink: 0;
     white-space: nowrap;
     max-width: 100%;
@@ -124,46 +123,34 @@
   .animated-button svg {
     position: absolute;
     width: 20px;
-    fill: var(--btn-color, var(--color-horto-orange));
+    fill: currentColor;
     z-index: 9;
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .animated-button .arr-1 { right: 16px; left: auto; }
   .animated-button .arr-2 { left: -25%; right: auto; }
 
   .animated-button .circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    background-color: var(--btn-color, var(--color-horto-orange));
-    border-radius: 50%;
-    opacity: 0;
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    display: none;
   }
 
   .animated-button .text {
     position: relative;
     z-index: 1;
     transform: translateX(-12px);
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .animated-button:hover {
-    box-shadow: 0 0 0 12px transparent;
-    color: var(--btn-hover-text, var(--color-deep-green));
-    border-radius: 12px;
+    filter: brightness(0.85);
+    color: var(--btn-hover-text, var(--btn-text));
   }
 
   .animated-button:hover .arr-1 { right: -25%; }
   .animated-button:hover .arr-2 { left: 16px; }
   .animated-button:hover .text { transform: translateX(12px); }
-  .animated-button:hover svg { fill: var(--btn-hover-text, var(--color-deep-green)); }
-  .animated-button:active { scale: 0.95; box-shadow: 0 0 0 4px var(--btn-color, var(--color-horto-orange)); }
-  .animated-button:hover .circle { width: 400px; height: 400px; opacity: 1; }
+  .animated-button:active { scale: 0.95; filter: brightness(0.7); }
 
   .font-display {
     font-family: var(--font-display);

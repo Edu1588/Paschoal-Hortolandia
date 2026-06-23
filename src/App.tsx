@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { z } from "zod";
-import { ArrowUp, ExternalLink, Facebook, Instagram, Play, Menu, X } from "lucide-react";
+import { ArrowUp, ExternalLink, Instagram, Play, Menu, X } from "lucide-react";
 import { AnimatedButton } from "@/src/components/AnimatedButton";
 
 import "@fontsource/space-grotesk/500.css";
@@ -161,6 +161,7 @@ export default function App() {
       <Historia />
       <Stats />
       <Trajetoria />
+      <InstagramCTA />
       <VideoSection />
       <Principios />
       <HortolandiaSempreProject />
@@ -169,7 +170,6 @@ export default function App() {
       <Depoimentos />
       <LeadForm />
       <NoticiasMidia />
-      <InstagramCTA />
       <Footer />
       <FloatingActionButtons />
     </main>
@@ -208,8 +208,9 @@ function Nav() {
           </a>
           <AnimatedButton
             href="#participe"
-            color="var(--color-deep-green)"
-            hoverText="var(--color-warm-cream)"
+            color="#00e676"
+            textColor="#000000"
+            hoverText="var(--color-deep-green)"
             className="!py-2.5 !px-6 !text-[10px]"
           >
             Participe
@@ -244,8 +245,9 @@ function Nav() {
           <div className="pt-2">
             <AnimatedButton
               href="#participe"
-              color="var(--color-deep-green)"
-              hoverText="var(--color-warm-cream)"
+              color="#00e676"
+              textColor="#000000"
+              hoverText="var(--color-deep-green)"
               className="!py-2.5 !px-6 !text-[10px] w-full max-w-xs"
               onClick={() => setIsOpen(false)}
             >
@@ -276,7 +278,7 @@ function Hero() {
           data-hero-fg
           src="https://res.cloudinary.com/djw0tqmiw/image/upload/v1782169933/sewfqrvh7u6y7m9e4jbr.png"
           alt="Paschoal em Hortolândia"
-          className="absolute inset-x-0 w-full h-[140%] sm:h-[135%] md:h-[150%] lg:h-[165%] object-contain object-bottom md:object-right-bottom sm:max-w-[1400px] sm:mx-auto -bottom-4 md:-bottom-4 scale-[2.2] origin-[75%_bottom] -translate-x-[15%] sm:translate-x-0 sm:scale-100 sm:origin-bottom pointer-events-none"
+          className="absolute inset-x-0 w-full h-[140%] sm:h-[135%] md:h-[150%] lg:h-[165%] object-contain object-bottom md:object-right-bottom sm:max-w-[1400px] sm:mx-auto -bottom-4 md:-bottom-4 scale-[1.5] origin-[85%_bottom] -translate-x-[8%] sm:translate-x-0 sm:scale-100 sm:origin-bottom pointer-events-none"
         />
         <div className="absolute inset-y-0 left-0 w-full md:w-[40%] bg-gradient-to-r from-deep-green via-deep-green/70 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-deep-green/90 via-deep-green/40 to-transparent sm:hidden" />
@@ -319,15 +321,15 @@ function Hero() {
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
           <AnimatedButton
             href="#participe"
-            color="var(--color-horto-orange)"
-            hoverText="var(--color-deep-green)"
+            color="#00e676"
+            textColor="#000000"
           >
             Some-se à causa
           </AnimatedButton>
           <AnimatedButton
             href="#historia"
             color="var(--color-warm-cream)"
-            hoverText="var(--color-deep-green)"
+            textColor="var(--color-deep-green)"
           >
             Ler a história
           </AnimatedButton>
@@ -541,7 +543,6 @@ const TimelineItem: React.FC<{ item: typeof timeline[0] }> = ({ item }) => {
           <AnimatedButton
             type="button"
             color="var(--color-horto-orange)"
-            hoverText="var(--color-deep-green)"
             onClick={() => setIsOpen(!isOpen)}
             className="!px-6 !py-3 !text-[10px]"
           >
@@ -778,7 +779,6 @@ function Book() {
             <AnimatedButton
               href="#participe"
               color="var(--color-horto-orange)"
-              hoverText="var(--color-deep-green)"
             >
               Quero saber mais
             </AnimatedButton>
@@ -1031,19 +1031,14 @@ function Field({
   );
 }
 
-const instagramPosts = [
-  "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&h=400&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1544830251-1f3e74bd0316?w=400&h=400&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1560439514-4e9645039924?w=400&h=400&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1493612276216-ee3925520721?w=400&h=400&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&h=400&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=400&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1542459141-8f55eb7874bd?w=400&h=400&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1577553531490-21a71e72d6ea?w=400&h=400&fit=crop&q=80"
-];
-
 function InstagramCTA() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://elfsightcdn.com/platform.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <section className="py-24 lg:py-32 px-6 text-center bg-off-white reveal opacity-0 translate-y-6">
       <div className="max-w-2xl mx-auto mb-16">
@@ -1057,38 +1052,24 @@ function InstagramCTA() {
           Memórias, encontros e o dia a dia de quem acredita que o futuro de Hortolândia se
           constrói conhecendo o seu passado.
         </p>
-        <div className="mt-8">
-          <AnimatedButton
-            href="https://instagram.com/paschoal.hortolandia"
-            target="_blank"
-            rel="noreferrer"
-            color="var(--color-deep-green)"
-            hoverText="var(--color-warm-cream)"
-          >
-            @paschoal.hortolandia
-          </AnimatedButton>
-        </div>
       </div>
 
-      <div className="max-w-4xl mx-auto grid grid-cols-3 gap-1 md:gap-4">
-        {instagramPosts.map((src, index) => (
-          <a
-            key={index}
-            href="https://instagram.com/paschoal.hortolandia"
-            target="_blank"
-            rel="noreferrer"
-            className="group relative aspect-square overflow-hidden bg-ink/5 rounded-sm md:rounded-lg"
-          >
-            <img
-              src={src}
-              alt={`Instagram post ${index + 1}`}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-deep-green/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <Instagram className="w-8 h-8 text-warm-cream" />
-            </div>
-          </a>
-        ))}
+      <div className="max-w-4xl mx-auto relative">
+        <div className="elfsight-app-499ae320-fdd8-447b-a2be-3e488faf59b3" data-elfsight-app-lazy></div>
+        {/* Bar to hide Elfsight watermark */}
+        <div className="absolute bottom-0 left-0 right-0 h-14 bg-off-white z-10"></div>
+      </div>
+
+      <div className="mt-8 relative z-20 flex justify-center">
+        <AnimatedButton
+          href="https://instagram.com/paschoal.hortolandia"
+          target="_blank"
+          rel="noreferrer"
+          color="var(--color-deep-green)"
+          hoverText="var(--color-warm-cream)"
+        >
+          @paschoal.hortolandia
+        </AnimatedButton>
       </div>
     </section>
   );
@@ -1218,13 +1199,15 @@ function FloatingActionButtons() {
   return (
     <div className={`fixed bottom-6 right-6 z-50 flex flex-col gap-3 transition-opacity duration-300 ${visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
       <a
-        href="https://www.facebook.com/people/Paschoal/61587951272877/"
+        href="https://wa.me/5519999999999"
         target="_blank"
         rel="noreferrer"
-        className="bg-[#1877F2] text-white w-12 h-12 flex items-center justify-center rounded-full hover:-translate-y-1 transition-all shadow-xl"
-        aria-label="Facebook Paschoal"
+        className="bg-[#00e676] text-white w-12 h-12 flex items-center justify-center rounded-full hover:-translate-y-1 hover:bg-[#00c853] transition-all shadow-xl"
+        aria-label="WhatsApp Paschoal"
       >
-        <Facebook className="w-5 h-5 fill-current" />
+        <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
       </a>
       <a
         href="https://instagram.com/paschoal.hortolandia"

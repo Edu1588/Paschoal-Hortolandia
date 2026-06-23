@@ -4,6 +4,7 @@ type AnimatedButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & React
   href?: string;
   className?: string;
   color?: string;
+  textColor?: string;
   hoverText?: string;
   children: React.ReactNode;
 };
@@ -13,10 +14,12 @@ export function AnimatedButton({
   href, 
   className = "", 
   color = "var(--color-horto-orange)", 
-  hoverText = "var(--color-deep-green)",
+  textColor = "var(--color-warm-cream)",
+  hoverText,
   ...props 
 }: AnimatedButtonProps) {
   const Element = href ? 'a' : 'button';
+  const actualHoverText = hoverText || textColor;
   
   return (
     <Element 
@@ -25,7 +28,8 @@ export function AnimatedButton({
       {...(props as any)}
       style={{ 
         '--btn-color': color, 
-        '--btn-hover-text': hoverText,
+        '--btn-text': textColor,
+        '--btn-hover-text': actualHoverText,
         ...(props.style || {})
       } as React.CSSProperties}
     >
