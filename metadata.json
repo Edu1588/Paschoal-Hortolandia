@@ -1,0 +1,6 @@
+{
+  "name": "Paschoal — Hortolândia Sempre",
+  "description": "Trabalho, honestidade e amor por Hortolândia. Conheça a história de Paschoal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
