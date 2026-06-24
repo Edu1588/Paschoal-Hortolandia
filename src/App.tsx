@@ -211,7 +211,7 @@ function Nav() {
             color="#00e676"
             textColor="#000000"
             hoverText="var(--color-deep-green)"
-            className="!py-2.5 !px-6 !text-[10px]"
+            className="!py-2.5 !px-6 !text-[10px] animate-pulse-glow"
           >
             Participe
           </AnimatedButton>
@@ -248,7 +248,7 @@ function Nav() {
               color="#00e676"
               textColor="#000000"
               hoverText="var(--color-deep-green)"
-              className="!py-2.5 !px-6 !text-[10px] w-full max-w-xs"
+              className="!py-2.5 !px-6 !text-[10px] w-full max-w-xs animate-pulse-glow"
               onClick={() => setIsOpen(false)}
             >
               Participe
@@ -323,6 +323,7 @@ function Hero() {
             href="#participe"
             color="#00e676"
             textColor="#000000"
+            className="animate-pulse-glow"
           >
             Some-se à causa
           </AnimatedButton>
