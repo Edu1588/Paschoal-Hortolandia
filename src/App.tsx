@@ -11,6 +11,7 @@ import "@fontsource/dm-sans/500.css";
 import "@fontsource/dm-sans/400-italic.css";
 
 import { supabase } from "@/src/integrations/supabase/client";
+import CityRadar from "./components/CityRadar";
 
 export default function App() {
   const rootRef = useRef<HTMLElement>(null);
@@ -168,6 +169,7 @@ export default function App() {
       <Book />
       <Gallery />
       <Depoimentos />
+      <CityRadar />
       <LeadForm />
       <NoticiasMidia />
       <Footer />
@@ -206,6 +208,9 @@ function Nav() {
           <a href="#livro" className="text-sm font-medium hover:text-inst-green transition-colors">
             O Livro
           </a>
+          <a href="#radar" className="text-sm font-medium hover:text-inst-green transition-colors">
+            Radar da Cidade
+          </a>
           <AnimatedButton
             href="#participe"
             color="#00e676"
@@ -242,6 +247,9 @@ function Nav() {
           <a href="#livro" onClick={() => setIsOpen(false)} className="text-base font-medium text-deep-green hover:text-inst-green transition-colors">
             O Livro
           </a>
+          <a href="#radar" onClick={() => setIsOpen(false)} className="text-base font-medium text-deep-green hover:text-inst-green transition-colors">
+            Radar da Cidade
+          </a>
           <div className="pt-2">
             <AnimatedButton
               href="#participe"
@@ -272,16 +280,16 @@ function Hero() {
           data-hero-bg
           src="https://res.cloudinary.com/djw0tqmiw/image/upload/v1782169933/gtztuwy7nhhqx5win37d.png"
           alt="Hortolândia - BG"
-          className="absolute inset-0 w-full h-[120%] object-cover object-center -top-[10%]"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <img
           data-hero-fg
           src="https://res.cloudinary.com/djw0tqmiw/image/upload/v1782169933/sewfqrvh7u6y7m9e4jbr.png"
           alt="Paschoal em Hortolândia"
-          className="absolute inset-x-0 w-full h-[140%] sm:h-[135%] md:h-[150%] lg:h-[165%] object-contain object-bottom md:object-right-bottom sm:max-w-[1400px] sm:mx-auto -bottom-4 md:-bottom-4 scale-[1.5] origin-[85%_bottom] -translate-x-[8%] sm:translate-x-0 sm:scale-100 sm:origin-bottom pointer-events-none"
+          className="absolute inset-x-0 bottom-0 w-full h-full sm:max-w-[1400px] sm:mx-auto object-contain object-bottom md:object-right-bottom pointer-events-none"
         />
         <div className="absolute inset-y-0 left-0 w-full md:w-[40%] bg-gradient-to-r from-deep-green via-deep-green/70 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-deep-green/90 via-deep-green/40 to-transparent sm:hidden" />
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-deep-green/90 via-deep-green/40 to-transparent md:hidden" />
       </div>
 
       <div className="relative z-10 max-w-5xl">
@@ -1094,6 +1102,7 @@ function Footer() {
           <a href="#trajetoria" className="hover:text-horto-orange transition-colors">Trajetória</a>
           <a href="#principios" className="hover:text-horto-orange transition-colors">Princípios</a>
           <a href="#livro" className="hover:text-horto-orange transition-colors">O Livro</a>
+          <a href="#radar" className="hover:text-horto-orange transition-colors">Radar da Cidade</a>
           <a href="#participe" className="hover:text-horto-orange transition-colors">Participe</a>
           <a
             href="https://instagram.com/paschoal.hortolandia"
