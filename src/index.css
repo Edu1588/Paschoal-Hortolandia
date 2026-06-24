@@ -42,6 +42,25 @@
 
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-up: marquee-up 20s linear infinite;
+  --animate-pulse-glow: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-up {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.4); }
+    50% { box-shadow: 0 0 20px 8px rgba(0, 230, 118, 0.6); }
+  }
 }
 
 :root {
@@ -133,44 +152,5 @@
   .reveal {
     opacity: 0;
     transform: translateY(24px);
-  }
-
-  .marquee-track {
-    animation: marquee 40s linear infinite;
-  }
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  .marquee-up-track {
-    animation: marquee-up 20s linear infinite;
-  }
-
-  @keyframes marquee-up {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(-50%);
-    }
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.4);
-    }
-    50% {
-      box-shadow: 0 0 20px 8px rgba(0, 230, 118, 0.6);
-    }
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }

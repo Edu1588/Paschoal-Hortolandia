@@ -101,7 +101,7 @@ export default function CityRadar() {
               <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
               <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none" />
               
-              <div className="flex flex-col items-center justify-start marquee-up-track space-y-4">
+              <div className="flex flex-col items-center justify-start animate-marquee-up space-y-4 hover:[animation-play-state:paused]">
                 {/* Duplicated for smooth infinite scroll */}
                 {[...Array(2)].map((_, i) => (
                   <div key={i} className="flex flex-col items-center space-y-4 w-full">

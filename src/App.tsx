@@ -359,7 +359,7 @@ function Marquee() {
     "EMANCIPAÇÃO · ÉTICA · TRANSPARÊNCIA · HORTOLÂNDIA · MEMÓRIA · TRABALHO · RAÍZES · FUTURO · ";
   return (
     <section aria-hidden className="bg-deep-green py-7 border-y border-warm-cream/10 overflow-hidden">
-      <div className="marquee-track flex whitespace-nowrap">
+      <div className="animate-marquee flex whitespace-nowrap hover:[animation-play-state:paused]">
         <span className="font-display font-semibold text-warm-cream/40 text-2xl md:text-4xl tracking-[0.15em] pr-12">
           {words.repeat(4)}
         </span>
