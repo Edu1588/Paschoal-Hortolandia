@@ -35,6 +35,10 @@
   --color-warm-cream: var(--warm-cream);
   --color-off-white: var(--off-white);
   --color-ink: var(--ink);
+  
+  --color-mdb-yellow: var(--mdb-yellow);
+  --color-mdb-red-dark: var(--mdb-red-dark);
+  --color-mdb-red-light: var(--mdb-red-light);
 
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
@@ -43,13 +47,17 @@
 :root {
   --radius: 0.25rem;
 
-  /* Hortolândia brand palette */
-  --deep-green: oklch(0.28 0.05 150);
-  --inst-green: oklch(0.52 0.13 148);
-  --horto-orange: oklch(0.72 0.17 55);
-  --warm-cream: oklch(0.94 0.04 70);
-  --off-white: oklch(0.985 0.01 80);
-  --ink: oklch(0.18 0.02 150);
+  /* Hortolândia brand palette mapped to MDB */
+  --deep-green: #000000; /* Maps primary 'deep-green' elements to Black */
+  --inst-green: #00a550; /* Details in Green */
+  --horto-orange: #fdb813; /* Primary Yellow for accents/buttons */
+  --warm-cream: #f4f5f0; /* Light background */
+  --off-white: #ffffff;
+  --ink: #000000; /* MDB Black */
+  
+  --mdb-yellow: #e1f200; /* MDB Yellow Light */
+  --mdb-red-dark: #9d0a0e; /* MDB Red Dark */
+  --mdb-red-light: #ed1c24; /* MDB Red Light */
 
   /* Shadcn semantic mapping */
   --background: var(--off-white);
@@ -97,60 +105,7 @@
 }
 
 @layer utilities {
-  .animated-button {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    padding: 16px 40px;
-    border: none;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    background-color: var(--btn-color, var(--color-horto-orange));
-    border-radius: 100px;
-    font-weight: 700;
-    color: var(--btn-text, var(--color-warm-cream));
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    flex-shrink: 0;
-    white-space: nowrap;
-    max-width: 100%;
-  }
-
-  .animated-button svg {
-    position: absolute;
-    width: 20px;
-    fill: currentColor;
-    z-index: 9;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .animated-button .arr-1 { right: 16px; left: auto; }
-  .animated-button .arr-2 { left: -25%; right: auto; }
-
-  .animated-button .circle {
-    display: none;
-  }
-
-  .animated-button .text {
-    position: relative;
-    z-index: 1;
-    transform: translateX(-12px);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .animated-button:hover {
-    filter: brightness(0.85);
-    color: var(--btn-hover-text, var(--btn-text));
-  }
-
-  .animated-button:hover .arr-1 { right: -25%; }
-  .animated-button:hover .arr-2 { left: 16px; }
-  .animated-button:hover .text { transform: translateX(12px); }
-  .animated-button:active { scale: 0.95; filter: brightness(0.7); }
+  
 
   .font-display {
     font-family: var(--font-display);
@@ -190,6 +145,19 @@
     }
     to {
       transform: translateX(-50%);
+    }
+  }
+
+  .marquee-up-track {
+    animation: marquee-up 20s linear infinite;
+  }
+
+  @keyframes marquee-up {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-50%);
     }
   }
 

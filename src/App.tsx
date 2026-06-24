@@ -160,6 +160,7 @@ export default function App() {
       <Hero />
       <Marquee />
       <Historia />
+      <CityRadar />
       <Stats />
       <Trajetoria />
       <InstagramCTA />
@@ -169,7 +170,6 @@ export default function App() {
       <Book />
       <Gallery />
       <Depoimentos />
-      <CityRadar />
       <LeadForm />
       <NoticiasMidia />
       <Footer />
@@ -213,7 +213,7 @@ function Nav() {
           </a>
           <AnimatedButton
             href="#participe"
-            color="#00e676"
+            color="var(--color-horto-orange)"
             textColor="#000000"
             hoverText="var(--color-deep-green)"
             className="!py-2.5 !px-6 !text-[10px] animate-pulse-glow"
@@ -253,7 +253,7 @@ function Nav() {
           <div className="pt-2">
             <AnimatedButton
               href="#participe"
-              color="#00e676"
+              color="var(--color-horto-orange)"
               textColor="#000000"
               hoverText="var(--color-deep-green)"
               className="!py-2.5 !px-6 !text-[10px] w-full max-w-xs animate-pulse-glow"
@@ -286,9 +286,9 @@ function Hero() {
           data-hero-fg
           src="https://res.cloudinary.com/djw0tqmiw/image/upload/v1782169933/sewfqrvh7u6y7m9e4jbr.png"
           alt="Paschoal em Hortolândia"
-          className="absolute inset-x-0 bottom-0 w-full h-full sm:max-w-[1400px] sm:mx-auto object-contain object-bottom md:object-right-bottom pointer-events-none"
+          className="absolute right-0 bottom-0 h-[85%] md:h-[95%] lg:h-[105%] w-auto max-w-[150%] sm:max-w-[120%] md:max-w-[90%] object-contain object-bottom md:object-right-bottom pointer-events-none origin-bottom"
         />
-        <div className="absolute inset-y-0 left-0 w-full md:w-[40%] bg-gradient-to-r from-deep-green via-deep-green/70 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-full md:w-[60%] lg:w-[65%] bg-gradient-to-r from-deep-green via-deep-green/80 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-deep-green/90 via-deep-green/40 to-transparent md:hidden" />
       </div>
 
@@ -329,7 +329,7 @@ function Hero() {
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
           <AnimatedButton
             href="#participe"
-            color="#00e676"
+            color="var(--color-horto-orange)"
             textColor="#000000"
             className="animate-pulse-glow"
           >
@@ -375,7 +375,7 @@ function VideoSection() {
   return (
     <section className="bg-off-white py-24 lg:py-32 px-6 md:px-16 lg:px-20 border-t border-ink/5 reveal opacity-0 translate-y-6">
       <div className="max-w-[1000px] mx-auto text-center">
-        <span className="text-xs font-semibold uppercase tracking-[0.25em] text-horto-orange">
+        <span className="text-xs font-semibold uppercase tracking-[0.25em] text-inst-green">
           A Voz da Experiência
         </span>
         <h2 className="mt-4 font-display font-semibold text-4xl lg:text-5xl leading-[1.05] text-deep-green mb-12">
@@ -412,7 +412,7 @@ function Historia() {
       <div className="max-w-[1400px] mx-auto grid md:grid-cols-12 gap-12 lg:gap-20">
         <div className="md:col-span-5">
           <div className="md:sticky md:top-28">
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-horto-orange">
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-inst-green">
               Minha História
             </span>
             <h2 className="mt-4 font-display font-semibold text-4xl lg:text-5xl leading-[1.05] text-deep-green text-balance">
@@ -422,7 +422,7 @@ function Historia() {
               Uma vida construída sobre trabalho, fé e amor por esta cidade — desde antes
               dela se tornar município.
             </p>
-            <div className="mt-8 border-l-2 border-horto-orange pl-5">
+            <div className="mt-8 border-l-2 border-[var(--color-mdb-red-light)] pl-5">
               <p className="font-display italic text-lg text-deep-green leading-snug">
                 “A política não pode ser um instrumento de poder pessoal, mas sim uma
                 ferramenta de transformação social.”
@@ -585,7 +585,7 @@ function Trajetoria() {
       <div className="max-w-[1400px] mx-auto grid md:grid-cols-12 gap-12 lg:gap-20">
         <div className="md:col-span-4">
           <div className="md:sticky md:top-28">
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-horto-orange">
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-inst-green">
               Trajetória
             </span>
             <h2 className="mt-4 font-display font-semibold text-4xl lg:text-5xl leading-[1.05] text-deep-green text-balance">
@@ -642,7 +642,7 @@ function Principios() {
     >
       <div className="max-w-[1400px] mx-auto">
         <div className="max-w-2xl mb-16">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-horto-orange">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-inst-green">
             Princípios
           </span>
           <h2 className="mt-4 font-display font-semibold text-4xl lg:text-5xl leading-[1.05] text-deep-green text-balance">
@@ -658,7 +658,7 @@ function Principios() {
           {principios.map((p) => (
             <article
               key={p.n}
-              className="bg-off-white border border-ink/10 p-8 lg:p-10 hover:border-horto-orange transition-colors group"
+              className="bg-off-white border border-ink/10 p-8 lg:p-10 hover:border-[var(--color-mdb-red-light)] transition-colors group"
             >
               <div className="flex items-baseline justify-between mb-6">
                 <span className="font-display italic text-5xl text-horto-orange/30 group-hover:text-horto-orange transition-colors">
@@ -683,7 +683,7 @@ function HortolandiaSempreProject() {
     <section id="projeto" className="py-24 lg:py-32 px-6 md:px-16 lg:px-20 border-t border-ink/5 reveal opacity-0 translate-y-6">
       <div className="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-horto-orange">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-inst-green">
             O Projeto
           </span>
           <h2 className="mt-4 font-display font-semibold text-4xl lg:text-5xl leading-[1.05] text-deep-green text-balance">
@@ -758,7 +758,7 @@ function Book() {
         </div>
 
         <div className="order-1 md:order-2 space-y-8">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-horto-orange">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-inst-green">
             Obra do autor
           </span>
           <h2 className="font-display font-semibold text-4xl lg:text-6xl leading-[1.05] text-balance">
@@ -810,7 +810,7 @@ function Gallery() {
     <section id="momentos" data-gallery className="py-24 lg:py-32 px-6 md:px-16 lg:px-20 reveal opacity-0 translate-y-6">
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-horto-orange">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-inst-green">
             Momentos
           </span>
           <h2 className="mt-4 font-display font-semibold text-4xl lg:text-5xl leading-[1.05] text-deep-green text-balance">
@@ -868,7 +868,7 @@ function Depoimentos() {
     <section className="bg-warm-cream/40 py-24 lg:py-32 px-6 md:px-16 lg:px-20 reveal opacity-0 translate-y-6">
       <div className="max-w-4xl mx-auto space-y-14">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-horto-orange">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-inst-green">
             Reconhecimentos
           </span>
           <h2 className="mt-4 font-display font-semibold text-3xl md:text-5xl leading-tight text-deep-green text-balance">
@@ -876,7 +876,7 @@ function Depoimentos() {
           </h2>
         </div>
         {depoimentos.map((d) => (
-          <blockquote key={d.name} className="border-l-4 border-horto-orange pl-8 md:pl-10">
+          <blockquote key={d.name} className="border-l-4 border-[var(--color-mdb-red-light)] pl-8 md:pl-10">
             <p className="font-display italic text-2xl md:text-3xl leading-[1.3] text-deep-green text-balance">
               “{d.quote}”
             </p>
@@ -945,7 +945,7 @@ function LeadForm() {
       <div className="absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-horto-orange/10 blur-3xl pointer-events-none" />
       <div className="max-w-[1400px] mx-auto grid md:grid-cols-12 gap-12 lg:gap-20 relative">
         <div className="md:col-span-5">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-horto-orange">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-inst-green">
             Boletim
           </span>
           <h2 className="mt-4 font-display font-semibold text-4xl lg:text-6xl leading-[1.02] text-balance">
@@ -980,7 +980,7 @@ function LeadForm() {
               name="mensagem"
               rows={4}
               maxLength={1000}
-              className="w-full bg-off-white border border-ink/15 px-4 py-3 focus:outline-none focus:border-horto-orange text-ink font-body resize-none"
+              className="w-full bg-off-white border border-ink/15 px-4 py-3 focus:outline-none focus:border-[var(--color-mdb-red-light)] text-ink font-body resize-none"
             />
           </div>
 
@@ -1034,7 +1034,7 @@ function Field({
         name={name}
         required={required}
         maxLength={maxLength}
-        className="w-full bg-off-white border border-ink/15 px-4 py-3 focus:outline-none focus:border-horto-orange text-ink font-body"
+        className="w-full bg-off-white border border-ink/15 px-4 py-3 focus:outline-none focus:border-[var(--color-mdb-red-light)] text-ink font-body"
       />
     </div>
   );
@@ -1051,7 +1051,7 @@ function InstagramCTA() {
   return (
     <section className="py-24 lg:py-32 px-6 text-center bg-off-white reveal opacity-0 translate-y-6">
       <div className="max-w-2xl mx-auto mb-16">
-        <span className="text-xs font-semibold uppercase tracking-[0.25em] text-horto-orange">
+        <span className="text-xs font-semibold uppercase tracking-[0.25em] text-inst-green">
           Acompanhe a jornada
         </span>
         <h2 className="mt-5 font-display font-semibold text-4xl md:text-5xl leading-[1.02] text-deep-green text-balance">
@@ -1160,7 +1160,7 @@ function NoticiasMidia() {
   return (
     <section id="noticias" className="py-24 px-6 md:px-16 lg:px-20 bg-warm-cream/30 reveal opacity-0 translate-y-6">
       <div className="max-w-[1400px] mx-auto">
-        <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-horto-orange block mb-4">
+        <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-inst-green block mb-4">
           Na Mídia
         </span>
         <h2 className="font-display font-semibold text-3xl md:text-5xl leading-tight text-deep-green mb-12">
@@ -1174,7 +1174,7 @@ function NoticiasMidia() {
               href={article.link}
               target="_blank"
               rel="noreferrer"
-              className="block group bg-off-white p-8 border border-ink/5 hover:border-horto-orange/40 transition-colors"
+              className="block group bg-off-white p-8 border border-ink/5 hover:border-[var(--color-mdb-red-light)]/40 transition-colors"
             >
               <div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-widest text-ink/50 mb-6">
                 <span>{article.source}</span>

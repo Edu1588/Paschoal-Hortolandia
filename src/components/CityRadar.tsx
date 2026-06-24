@@ -1,66 +1,24 @@
 import React, { useState } from 'react';
-import { APIProvider, Map, AdvancedMarker, Pin } from '@vis.gl/react-google-maps';
 import { Camera, MapPin, Send, AlertCircle } from 'lucide-react';
 import { AnimatedButton } from './AnimatedButton';
-import { ErrorBoundary } from 'react-error-boundary';
 
-const API_KEY =
-  process.env.GOOGLE_MAPS_PLATFORM_KEY ||
-  (import.meta as any).env?.VITE_GOOGLE_MAPS_PLATFORM_KEY ||
-  (globalThis as any).GOOGLE_MAPS_PLATFORM_KEY ||
-  '';
-const hasValidKey = Boolean(API_KEY) && API_KEY !== 'YOUR_API_KEY';
-
-interface Report {
-  id: string;
-  lat: number;
-  lng: number;
-  title: string;
-}
-
-const initialReports: Report[] = [
-  { id: '1', lat: -22.8580, lng: -47.2201, title: 'Buraco na via' },
-  { id: '2', lat: -22.8650, lng: -47.2150, title: 'Iluminação queimada' },
-  { id: '3', lat: -22.8520, lng: -47.2250, title: 'Lixo acumulado' },
+const bairros = [
+  { name: "Jardim Amanda", count: 142 },
+  { name: "Jardim Rosolém", count: 98 },
+  { name: "Nova Hortolândia", count: 87 },
+  { name: "Vila Real", count: 65 },
+  { name: "Jd. N. Sra. de Fátima", count: 54 },
+  { name: "Jardim São Bento", count: 43 },
 ];
 
-const MapMarkers = ({ reports }: { reports: Report[] }) => {
-  return (
-    <>
-      {reports.map((report) => (
-        <AdvancedMarker key={report.id} position={{lat: report.lat, lng: report.lng}} title={report.title}>
-          <Pin background="#ea4335" borderColor="#b31412" glyphColor="#fff" />
-        </AdvancedMarker>
-      ))}
-    </>
-  );
-};
-
 export default function CityRadar() {
-  const [reports, setReports] = useState<Report[]>(initialReports);
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<'idle' | 'success'>('idle');
-  const [apiError, setApiError] = useState(false);
-
-  React.useEffect(() => {
-    (window as any).gm_authFailure = () => {
-      setApiError(true);
-    };
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!message) return;
     
-    // Add a new mock pin slightly offset from center
-    const newReport: Report = {
-      id: Date.now().toString(),
-      lat: -22.8580 + (Math.random() - 0.5) * 0.02,
-      lng: -47.2201 + (Math.random() - 0.5) * 0.02,
-      title: message,
-    };
-    
-    setReports([...reports, newReport]);
     setMessage('');
     setStatus('success');
     setTimeout(() => setStatus('idle'), 3000);
@@ -70,7 +28,7 @@ export default function CityRadar() {
     <section className="py-24 px-6 bg-white relative overflow-hidden" id="radar">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-horto-orange">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-mdb-red-light)]">
             Radar da Cidade
           </span>
           <h2 className="mt-5 font-display font-semibold text-4xl md:text-5xl leading-[1.02] text-deep-green text-balance">
@@ -81,13 +39,13 @@ export default function CityRadar() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Form Side */}
           <div className="bg-off-white p-8 border border-ink/10 relative">
             <div className="absolute top-0 right-0 w-24 h-24 bg-horto-orange/10 rounded-bl-full" />
             
             <h3 className="font-display font-semibold text-2xl text-deep-green mb-6 flex items-center gap-3">
-              <AlertCircle className="w-6 h-6 text-horto-orange" />
+              <AlertCircle className="w-6 h-6 text-[var(--color-mdb-red-light)]" />
               Reportar Problema
             </h3>
 
@@ -117,65 +75,49 @@ export default function CityRadar() {
                   Anexar Foto (opcional)
                 </label>
                 <div className="border-2 border-dashed border-ink/20 bg-white p-6 flex flex-col items-center justify-center text-ink/60 hover:bg-ink/5 transition-colors cursor-pointer group">
-                  <Camera className="w-8 h-8 mb-2 group-hover:text-horto-orange transition-colors" />
+                  <Camera className="w-8 h-8 mb-2 group-hover:text-[var(--color-mdb-red-light)] transition-colors" />
                   <span className="text-sm">Clique para enviar imagem</span>
                   <input type="file" accept="image/*" className="hidden" />
                 </div>
               </div>
 
               <AnimatedButton
-                href="#"
+                type="submit"
                 color="var(--color-horto-orange)"
-                textColor="var(--color-warm-cream)"
                 className="w-full justify-center !py-4"
               >
-                Enviar Relato <Send className="w-4 h-4 ml-2" />
+                Enviar Relato
               </AnimatedButton>
             </form>
           </div>
 
-          {/* Map Side */}
-          <div className="h-[500px] md:h-full min-h-[500px] bg-gray-100 border border-ink/10 relative">
-              {(!hasValidKey || apiError) && (
-                <div className="absolute inset-0 z-50 bg-white/90 flex items-center justify-center p-8 backdrop-blur-sm">
-                  <div className="text-center max-w-[520px] bg-white p-6 shadow-xl border border-red-100 rounded-lg">
-                    <h3 className="font-semibold text-xl mb-4 text-red-600">Maps API Error / Missing Key</h3>
-                    <p className="text-sm text-ink/70 mb-4">The Google Maps JavaScript API is not enabled for your API key, or the key is missing.</p>
-                    <p className="text-sm text-ink/70 mb-2"><strong>Step 1:</strong> <a href="https://console.cloud.google.com/google/maps-apis/api-list" target="_blank" rel="noopener" className="underline text-blue-600">Enable Maps JavaScript API</a></p>
-                    <p className="text-sm text-ink/70 mb-2"><strong>Step 2:</strong> Add your key as a secret in AI Studio:</p>
-                    <ul style={{textAlign:'left',lineHeight:'1.8'}} className="text-sm text-ink/70 bg-gray-50 p-4 border border-ink/10">
-                      <li>Open <strong>Settings</strong> (⚙️ gear icon, <strong>top-right corner</strong>)</li>
-                      <li>Select <strong>Secrets</strong></li>
-                      <li>Type <code>GOOGLE_MAPS_PLATFORM_KEY</code> as the secret name, press <strong>Enter</strong></li>
-                      <li>Paste your API key as the value, press <strong>Enter</strong></li>
-                    </ul>
-                  </div>
-                </div>
-              )}
-              
-              <ErrorBoundary fallback={
-                <div className="absolute inset-0 z-50 bg-white/90 flex items-center justify-center p-8">
-                  <div className="text-center max-w-[520px]">
-                    <h3 className="font-semibold text-xl mb-4 text-red-600">Maps API Error</h3>
-                    <p className="text-sm text-ink/70 mb-4">An error occurred while loading the map. The API key may be invalid or not activated.</p>
-                  </div>
-                </div>
-              }>
-                {hasValidKey && (
-                  <APIProvider apiKey={API_KEY} version="weekly" onLoad={() => console.log('Maps API loaded')}>
-                    <Map
-                      defaultCenter={{lat: -22.8580, lng: -47.2201}}
-                      defaultZoom={13}
-                      mapId="DEMO_MAP_ID"
-                      internalUsageAttributionIds={['gmp_mcp_codeassist_v1_aistudio']}
-                      style={{width: '100%', height: '100%'}}
-                    >
-                      <MapMarkers reports={reports} />
-                    </Map>
-                  </APIProvider>
-                )}
-              </ErrorBoundary>
+          {/* Ranking Side */}
+          <div className="bg-white border border-ink/10 relative overflow-hidden flex flex-col pt-8 pb-4 h-[380px] max-w-md mx-auto w-full">
+            <div className="text-center mb-6 relative z-20 shrink-0">
+              <h4 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-mdb-red-light)]">Locais Mais Denunciados</h4>
             </div>
+            
+            <div className="relative flex-1 overflow-hidden w-full px-6">
+              <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none" />
+              
+              <div className="flex flex-col items-center justify-start marquee-up-track space-y-4">
+                {/* Duplicated for smooth infinite scroll */}
+                {[...Array(2)].map((_, i) => (
+                  <div key={i} className="flex flex-col items-center space-y-4 w-full">
+                    {bairros.map((bairro, j) => (
+                      <div key={j} className="flex items-center justify-between text-sm md:text-base font-medium text-ink/80 bg-gray-50 py-3 px-5 rounded border border-ink/10 w-full shadow-sm">
+                        <span>{bairro.name}</span>
+                        <span className="text-xs font-bold bg-[var(--color-mdb-red-light)]/10 text-[var(--color-mdb-red-light)] px-2 py-1 rounded">
+                          {bairro.count} relatos
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

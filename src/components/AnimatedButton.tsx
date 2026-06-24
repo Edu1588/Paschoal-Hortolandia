@@ -14,7 +14,7 @@ export function AnimatedButton({
   href, 
   className = "", 
   color = "var(--color-horto-orange)", 
-  textColor = "var(--color-warm-cream)",
+  textColor = "var(--color-ink)",
   hoverText,
   ...props 
 }: AnimatedButtonProps) {
@@ -24,21 +24,16 @@ export function AnimatedButton({
   return (
     <Element 
       href={href} 
-      className={`animated-button ${className}`}
+      className={`animated-button group flex items-center justify-center gap-2 px-8 py-4 font-semibold uppercase tracking-widest text-xs transition-all hover:brightness-95 active:scale-[0.98] rounded-full ${className}`}
       {...(props as any)}
       style={{ 
-        '--btn-color': color, 
-        '--btn-text': textColor,
-        '--btn-hover-text': actualHoverText,
+        backgroundColor: color,
+        color: textColor,
         ...(props.style || {})
       } as React.CSSProperties}
     >
-      <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-      </svg>
-      <span className="text">{children}</span>
-      <span className="circle"></span>
-      <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
+      <span className="relative z-10 transition-transform group-hover:-translate-x-1">{children}</span>
+      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current relative z-10 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg">
         <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
       </svg>
     </Element>
