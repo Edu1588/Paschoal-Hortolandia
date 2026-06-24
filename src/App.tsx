@@ -997,7 +997,8 @@ function LeadForm() {
             type="submit"
             disabled={status === "loading"}
             color="var(--color-deep-green)"
-            hoverText="var(--color-warm-cream)"
+            textColor="var(--color-warm-cream)"
+            hoverText="var(--color-horto-orange)"
             className={status === "loading" ? "opacity-60 pointer-events-none" : ""}
           >
             {status === "loading" ? "Enviando..." : "Quero participar"}
@@ -1075,7 +1076,8 @@ function InstagramCTA() {
           target="_blank"
           rel="noreferrer"
           color="var(--color-deep-green)"
-          hoverText="var(--color-warm-cream)"
+            textColor="var(--color-warm-cream)"
+            hoverText="var(--color-horto-orange)"
         >
           @paschoal.hortolandia
         </AnimatedButton>
