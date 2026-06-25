@@ -29,6 +29,7 @@ export function AnimatedButton({
       style={{ 
         backgroundColor: color,
         color: textColor,
+        '--btn-color': color,
         ...(props.style || {})
       } as React.CSSProperties}
     >

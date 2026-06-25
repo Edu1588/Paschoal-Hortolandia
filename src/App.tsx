@@ -397,10 +397,13 @@ function VideoSection() {
 }
 
 const historiaParagrafos = [
-  "Sou filho de uma família humilde, originária do interior de Minas Gerais. Aprendi desde cedo que o trabalho, a honestidade e a perseverança são os alicerces sobre os quais se constrói uma vida digna. Esses valores moldaram minha trajetória pessoal, profissional e política — e continuam sendo a base de tudo aquilo em que acredito.",
-  "Participei ativamente da emancipação de Hortolândia e acompanhei, desde os primeiros dias, a construção da cidade que hoje se tornou uma das mais importantes da Região Metropolitana de Campinas. Vivi de perto as dificuldades de um povo que enfrentava ruas sem asfalto, falta de água, ausência de saneamento e serviços públicos precários. Em vez de me conformar, escolhi lutar.",
-  "Tive a honra de servir a população como o primeiro Secretário Municipal de Finanças e Planejamento de Hortolândia, Vereador e Presidente da Câmara Municipal. Ao longo de mais de quatro décadas como economista, sempre fui guiado pelos princípios da responsabilidade, da ética e do respeito ao dinheiro público.",
-  "Não vejo Hortolândia apenas como o lugar onde vivo. Vejo-a como uma extensão da minha própria vida. Minha história está nas ruas que ajudei a planejar, nas instituições que contribuí para construir e, principalmente, nas pessoas com quem compartilhei sonhos, desafios e conquistas.",
+  "Nasci no interior de Minas Gerais, em uma família que nunca teve luxo, mas que nunca abriu mão do trabalho e da honestidade. Em casa, aprendi mais observando do que ouvindo conselhos. Via meus pais enfrentarem as dificuldades sem reclamar e seguirem em frente, dia após dia.",
+  "Quando cheguei a Hortolândia, a cidade era muito diferente da que conhecemos hoje. Quem viveu aquela época certamente se lembra das ruas de terra, dos problemas de infraestrutura e das inúmeras necessidades que existiam em praticamente todos os bairros.",
+  "Eu acompanhei esse crescimento de perto.",
+  "Participei da emancipação da cidade e vi nascer uma nova etapa para a população. Não foi um caminho simples. Muitas decisões precisaram ser tomadas, muitos desafios precisaram ser enfrentados e havia um enorme trabalho pela frente.",
+  "Com o passar dos anos, tive a responsabilidade de ocupar cargos importantes na administração pública. Atuei como primeiro Secretário Municipal de Finanças e Planejamento, fui Vereador e também Presidente da Câmara Municipal.",
+  "Sempre procurei exercer essas funções da mesma forma que conduzi minha vida: com responsabilidade, respeito às pessoas e cuidado com os recursos públicos.",
+  "Hoje, quando olho para Hortolândia, não enxergo apenas uma cidade que cresceu. Vejo histórias, lembranças e pessoas que fizeram parte da minha caminhada. Vejo uma cidade que ajudou a construir minha trajetória ao mesmo tempo em que eu procurava contribuir para a construção dela."
 ];
 
 function Historia() {
