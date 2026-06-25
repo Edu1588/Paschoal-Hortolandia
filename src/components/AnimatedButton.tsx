@@ -24,11 +24,15 @@ export function AnimatedButton({
   return (
     <Element 
       href={href} 
-      className={`animated-button group flex items-center justify-center gap-2 px-8 py-4 font-semibold uppercase tracking-widest text-xs transition-all hover:brightness-95 active:scale-[0.98] rounded-full ${className}`}
+      className={`animated-button group flex items-center justify-center gap-2 px-8 py-4 font-highlight font-semibold uppercase tracking-widest text-xs transition-all hover:brightness-105 active:scale-[0.98] rounded-full ${className}`}
       {...(props as any)}
       style={{ 
-        backgroundColor: color,
-        color: textColor,
+        '--btn-bg': color,
+        '--btn-bg-hover': color === '#2EFF00' ? '#22c55e' : color,
+        backgroundColor: 'var(--btn-bg)',
+        color: 'var(--btn-text)',
+        '--btn-text': textColor,
+        '--btn-text-hover': actualHoverText,
         '--btn-color': color,
         ...(props.style || {})
       } as React.CSSProperties}

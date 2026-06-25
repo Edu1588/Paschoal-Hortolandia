@@ -40,8 +40,9 @@
   --color-mdb-red-dark: var(--mdb-red-dark);
   --color-mdb-red-light: var(--mdb-red-light);
 
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-highlight: "Montserrat", ui-sans-serif, system-ui, sans-serif;
 
   --animate-marquee: marquee 40s linear infinite;
   --animate-marquee-up: marquee-up 20s linear infinite;
@@ -133,6 +134,15 @@
 
   .font-body {
     font-family: var(--font-body);
+  }
+
+  .font-highlight {
+    font-family: var(--font-highlight);
+  }
+
+  .animated-button:hover {
+    background-color: var(--btn-bg-hover) !important;
+    color: var(--btn-text-hover) !important;
   }
 
   .text-balance {

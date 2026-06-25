@@ -3,12 +3,11 @@ import { z } from "zod";
 import { ArrowUp, ExternalLink, Instagram, Play, Menu, X } from "lucide-react";
 import { AnimatedButton } from "@/src/components/AnimatedButton";
 
-import "@fontsource/space-grotesk/500.css";
-import "@fontsource/space-grotesk/600.css";
-import "@fontsource/space-grotesk/700.css";
-import "@fontsource/dm-sans/400.css";
-import "@fontsource/dm-sans/500.css";
-import "@fontsource/dm-sans/400-italic.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import "@fontsource/montserrat/600.css";
+import "@fontsource/montserrat/700.css";
 
 import { supabase } from "@/src/integrations/supabase/client";
 import CityRadar from "./components/CityRadar";
@@ -213,9 +212,9 @@ function Nav() {
           </a>
           <AnimatedButton
             href="#participe"
-            color="var(--color-horto-orange)"
+            color="#2EFF00"
             textColor="#000000"
-            hoverText="var(--color-deep-green)"
+            hoverText="#0F172A"
             className="!py-2.5 !px-6 !text-[10px] animate-pulse-glow"
           >
             Participe
@@ -253,9 +252,9 @@ function Nav() {
           <div className="pt-2">
             <AnimatedButton
               href="#participe"
-              color="var(--color-horto-orange)"
+              color="#2EFF00"
               textColor="#000000"
-              hoverText="var(--color-deep-green)"
+              hoverText="#0F172A"
               className="!py-2.5 !px-6 !text-[10px] w-full max-w-xs animate-pulse-glow"
               onClick={() => setIsOpen(false)}
             >
@@ -329,8 +328,9 @@ function Hero() {
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
           <AnimatedButton
             href="#participe"
-            color="var(--color-horto-orange)"
+            color="#2EFF00"
             textColor="#000000"
+            hoverText="#0F172A"
             className="animate-pulse-glow"
           >
             Some-se à causa
@@ -790,7 +790,9 @@ function Book() {
           <div className="flex flex-col sm:flex-row gap-4 pt-2">
             <AnimatedButton
               href="#participe"
-              color="var(--color-horto-orange)"
+              color="#2EFF00"
+              textColor="#000000"
+              hoverText="#0F172A"
             >
               Quero saber mais
             </AnimatedButton>
