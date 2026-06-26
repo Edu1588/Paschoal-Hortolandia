@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { ArrowUp, ExternalLink, Instagram, Play, Menu, X } from "lucide-react";
 import { AnimatedButton } from "@/src/components/AnimatedButton";
+import { DemoOne } from "@/src/components/ui/demo";
 
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -162,6 +163,7 @@ export default function App() {
       <CityRadar />
       <Stats />
       <Trajetoria />
+      <DemoOne />
       <InstagramCTA />
       <VideoSection />
       <Principios />
