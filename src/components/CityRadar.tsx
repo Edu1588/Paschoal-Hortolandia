@@ -3,12 +3,12 @@ import { Camera, MapPin, Send, AlertCircle } from 'lucide-react';
 import { AnimatedButton } from './AnimatedButton';
 
 const bairros = [
-  { name: "Jardim Amanda", count: 142 },
-  { name: "Jardim Rosolém", count: 98 },
-  { name: "Nova Hortolândia", count: 87 },
-  { name: "Vila Real", count: 65 },
-  { name: "Jd. N. Sra. de Fátima", count: 54 },
-  { name: "Jardim São Bento", count: 43 },
+  { name: "Jardim Amanda", count: 11 },
+  { name: "Jardim Rosolém", count: 8 },
+  { name: "Nova Hortolândia", count: 7 },
+  { name: "Vila Real", count: 5 },
+  { name: "Jd. N. Sra. de Fátima", count: 3 },
+  { name: "Jardim São Bento", count: 2 },
 ];
 
 export default function CityRadar() {
@@ -29,13 +29,13 @@ export default function CityRadar() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-mdb-red-light)]">
-            Radar da Cidade
+            Hortolândia é sua
           </span>
           <h2 className="mt-5 font-display font-semibold text-4xl md:text-5xl leading-[1.02] text-deep-green text-balance">
-            Ajude a cuidar de Hortolândia
+            Onde está o problema?
           </h2>
           <p className="mt-6 text-lg text-ink/65 leading-relaxed max-w-2xl mx-auto">
-            Viu algo que precisa ser melhorado? Envie sua mensagem ou foto. O mapa abaixo mostra os pontos de atenção já reportados por outros moradores.
+            Mande para a gente o que precisa ser verificado e vamos até lá. O radar abaixo mostra os pontos de atenção já reportados por outros moradores.
           </p>
         </div>
 
@@ -92,9 +92,12 @@ export default function CityRadar() {
           </div>
 
           {/* Ranking Side */}
-          <div className="bg-white border border-ink/10 relative overflow-hidden flex flex-col pt-8 pb-4 h-[380px] max-w-md mx-auto w-full">
-            <div className="text-center mb-6 relative z-20 shrink-0">
-              <h4 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-mdb-red-light)]">Locais Mais Denunciados</h4>
+          <div className="bg-white relative overflow-hidden flex flex-col pt-8 pb-4 h-[380px] max-w-md mx-auto w-full">
+            <div className="text-center mb-6 relative z-20 shrink-0 border-b border-[var(--color-mdb-red-light)]/20 pb-4">
+              <h4 className="text-base md:text-lg font-bold font-highlight uppercase tracking-widest text-[var(--color-mdb-red-light)] flex items-center justify-center gap-2">
+                <AlertCircle className="w-5 h-5" />
+                Locais Mais Denunciados
+              </h4>
             </div>
             
             <div className="relative flex-1 overflow-hidden w-full px-6">
@@ -106,7 +109,7 @@ export default function CityRadar() {
                 {[...Array(2)].map((_, i) => (
                   <div key={i} className="flex flex-col items-center space-y-4 w-full">
                     {bairros.map((bairro, j) => (
-                      <div key={j} className="flex items-center justify-between text-sm md:text-base font-medium text-ink/80 bg-gray-50 py-3 px-5 rounded border border-ink/10 w-full shadow-sm">
+                      <div key={j} className="flex items-center justify-between text-sm md:text-base font-medium text-ink/80 bg-gray-50 py-3 px-5 rounded w-full">
                         <span>{bairro.name}</span>
                         <span className="text-xs font-bold bg-[var(--color-mdb-red-light)]/10 text-[var(--color-mdb-red-light)] px-2 py-1 rounded">
                           {bairro.count} relatos
