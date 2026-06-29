@@ -12,6 +12,7 @@ import "@fontsource/montserrat/700.css";
 
 import { supabase } from "@/src/integrations/supabase/client";
 import CityRadar from "./components/CityRadar";
+import { ManifestoSection } from "./components/ManifestoSection";
 
 export default function App() {
   const rootRef = useRef<HTMLElement>(null);
@@ -160,6 +161,7 @@ export default function App() {
       <Hero />
       <Marquee />
       <Historia />
+      <ManifestoSection />
       <CityRadar />
       <Stats />
       <Trajetoria />
