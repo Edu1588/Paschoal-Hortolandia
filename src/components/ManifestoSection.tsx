@@ -25,7 +25,7 @@ const manifestoContent = [
   {
     title: "Responsabilidade e esperança",
     text: "“Sempre acreditei que administrar recursos públicos é, antes de tudo, administrar a esperança das pessoas. Por trás de cada real arrecadado existem pessoas, famílias, sonhos e esperanças.”",
-    image: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=1600&auto=format&fit=crop"
+    image: "https://cdn.mindminers.com/blog/uploads/2024/01/pessoas-energia-renov-vel.png"
   }
 ];
 
@@ -101,6 +101,15 @@ export function ManifestoSection() {
             );
           })}
         </div>
+        {/* Footer */}
+        <motion.div 
+          className="absolute bottom-8 left-0 w-full text-center z-20 pointer-events-none"
+          style={{ opacity: backgroundOpacity }}
+        >
+          <p className="text-white/50 font-body uppercase tracking-widest text-sm font-medium">
+            A Cidade pertence ao povo
+          </p>
+        </motion.div>
       </div>
     </section>
   );
