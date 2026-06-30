@@ -5,17 +5,17 @@ const manifestoContent = [
   {
     title: "Gestão e prioridades",
     text: "“O maior desafio do município não é a falta de recursos, mas a definição de prioridades e a eficiência na administração do dinheiro público. Hortolândia é uma das cidades mais prósperas do Estado de São Paulo. Seu orçamento anual aproxima-se de R$ 2 bilhões, um volume de recursos que poucos municípios brasileiros possuem.”",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop"
+    image: "https://hortonews.com.br/images/noticias/2547/3d7718d0abbc8433d6a4364e1eb8d0e7.JPG"
   },
   {
     title: "A riqueza que não chega à população",
     text: "“Hortolândia é uma das cidades mais prósperas do Estado de São Paulo. Hoje, possui um orçamento próximo de R$ 2 bilhões por ano, um privilégio que poucos municípios brasileiros possuem. Esse recurso poderia transformar nossa cidade em referência nacional em saúde, educação, segurança, mobilidade urbana, geração de empregos, esporte, cultura e qualidade de vida. Infelizmente, essa riqueza ainda não chegou à vida de muitas famílias.”",
-    image: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1600&auto=format&fit=crop"
+    image: "https://ichef.bbci.co.uk/ace/ws/640/amz/worldservice/live/assets/images/2014/10/08/141008012925_hortolandia_624x351_bbc.jpg.webp"
   },
   {
     title: "Impacto do desperdício público",
     text: "“Cada real desperdiçado representa menos médicos, menos medicamentos, menos vagas em creches, menos segurança, menos infraestrutura, menos oportunidades para nossos jovens e menos qualidade de vida para milhares de famílias.”",
-    image: "https://images.unsplash.com/photo-1541888086925-920a0b38bcfe?q=80&w=1600&auto=format&fit=crop"
+    image: "https://ambiental.sc/wp-content/uploads/2025/10/os-perigos-do-descarte-incorreto-de-residuos-para-a-saude-publica.jpg"
   },
   {
     title: "O dinheiro público pertence ao povo",
