@@ -37,11 +37,24 @@ export function ManifestoSection() {
     offset: ["start start", "end end"]
   });
 
-  // Fade smoothly over the first 16.6% (100vh out of 600vh)
-  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.166], [0, 1]);
+  // Fade background from 0 to 0.08
+  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.08], [0, 1]);
+
+  // Main title animation
+  // Phrase: "A CIDADE PERTENCE AO POVO"
+  const phrase = "A CIDADE\nPERTENCE AO POVO";
+  const letters = phrase.split("");
+
+  // After fading in letters, we scale down and move to footer
+  const titleScale = useTransform(scrollYProgress, [0.18, 0.28], [1, 0.15]); // scale down to 15%
+  const titleY = useTransform(scrollYProgress, [0.18, 0.28], ["0vh", "45vh"]);
+  const titleOpacity = useTransform(scrollYProgress, [0.25, 0.28], [1, 0]);
+
+  // Footer text fades in exactly as the main title fades out
+  const footerOpacity = useTransform(scrollYProgress, [0.27, 0.29], [0, 1]);
 
   return (
-    <section ref={containerRef} className="relative h-[600vh] -mt-[100vh] z-40" id="manifesto">
+    <section ref={containerRef} className="relative h-[750vh] -mt-[100vh] z-40" id="manifesto">
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center pointer-events-none">
         
         {/* Fundo preto suave que sobrepõe a seção anterior */}
@@ -49,15 +62,43 @@ export function ManifestoSection() {
           className="absolute inset-0 bg-black z-0"
           style={{ opacity: backgroundOpacity }}
         />
+
+        {/* Intro text animation */}
+        <motion.div 
+          className="absolute inset-0 flex items-center justify-center z-20"
+          style={{ scale: titleScale, y: titleY, opacity: titleOpacity }}
+        >
+          <h2 className="text-4xl md:text-7xl font-body uppercase tracking-[0.2em] text-white font-semibold text-center leading-[1.2]">
+            {letters.map((letter, i) => {
+              if (letter === "\n") {
+                return <br key={i} />;
+              }
+              // Stagger letter fade in between 0.08 and 0.16
+              const start = 0.08 + (i * 0.003);
+              const end = start + 0.03;
+              const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
+              const y = useTransform(scrollYProgress, [start, end], [20, 0]);
+              
+              return (
+                <motion.span 
+                  key={i} 
+                  style={{ opacity, y, display: "inline-block" }}
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
+              );
+            })}
+          </h2>
+        </motion.div>
         
         {/* Content containers */}
         <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-6 py-24 flex items-center">
           {manifestoContent.map((item, index) => {
-            // First 16.6% is for background fade. Remaining 83.4% divided by 5 items = 16.68% per item
-            const start = 0.166 + (index * 0.1668);
+            // Intro takes up to 0.28. Remaining 0.72 divided by 5 = 0.144 per item
+            const start = 0.28 + (index * 0.144);
             const fadeUpEnd = start + 0.04;
-            const fadeOutStart = start + 0.1268;
-            const end = start + 0.1668;
+            const fadeOutStart = start + 0.11;
+            const end = start + 0.144;
 
             const opacity = useTransform(
               scrollYProgress,
@@ -104,7 +145,7 @@ export function ManifestoSection() {
         {/* Footer */}
         <motion.div 
           className="absolute bottom-8 left-0 w-full text-center z-20 pointer-events-none"
-          style={{ opacity: backgroundOpacity }}
+          style={{ opacity: footerOpacity }}
         >
           <p className="text-white/50 font-body uppercase tracking-widest text-sm font-medium">
             A Cidade pertence ao povo
